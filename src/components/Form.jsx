@@ -9,9 +9,14 @@ export default function Form() {
   const [touched, setTouched] = useState(false);
 
   function validate(string) {
-    if (isEmpty(string) || !isEmail(string))
-      setError("Please provide a valid email address");
-    else setError(null);
+    if (isEmpty(string))
+      setError("Whoops! It looks like you forgot to add your email");
+    else if (!isEmail(string)) setError("Please provide a valid email address");
+    else {
+      setError(null);
+      return true;
+    }
+    return false;
   }
 
   function handleChange({ target: { value: string } }) {
@@ -26,9 +31,11 @@ export default function Form() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    setEmail("");
-    setError(null);
-    setTouched(false);
+    if (validate(e.target[0].value)) {
+      setEmail("");
+      setError(null);
+      setTouched(false);
+    }
   }
 
   return (
@@ -43,11 +50,7 @@ export default function Form() {
         value={email}
       />
       {error && <p className={style.error_message}>{error}</p>}
-      <button
-        className={style.button}
-        onPointerUp={() => blur()}
-        disabled={error}
-      >
+      <button className={style.button} onPointerUp={() => blur()}>
         Notify Me
       </button>
     </form>
