@@ -95,29 +95,3 @@ $unit-table: (
   }
   @return math.div($value, $context) * 1em;
 }
-
-//Font setter
-@mixin setFont($font-size, $line-height, $font-weight: false) {
-  @if unit($font-size) == "px" {
-    font-size: rem($font-size);
-  } @else if unit($font-size) == "rem" {
-    font-size: $font-size;
-  } @else {
-    @error "Invalid unit!";
-  }
-
-  @if unitless($line-height) {
-    line-height: math.div(
-      $line-height,
-      strip-unit(convertUnit($font-size, px))
-    );
-  } @else if unit($line-height) == "px" {
-    line-height: math.div($line-height, convertUnit($font-size, px));
-  } @else {
-    @error "Invalid unit!";
-  }
-
-  @if $font-weight {
-    font-weight: $font-weight;
-  }
-}

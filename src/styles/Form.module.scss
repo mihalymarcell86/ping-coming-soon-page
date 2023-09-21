@@ -1,23 +1,36 @@
 @use "util/global" as *;
 @use "sass:color" as color;
 
+@function fluid($w1, $w2) {
+  @return lerp_clamp($w-mobile, rem($w1), $bp1, rem($w2));
+}
+
 .form {
-  padding-inline: rem(10px);
+  padding-inline: rem(20px);
   display: flex;
   flex-direction: column;
   gap: rem(10px);
-  margin-bottom: rem(72px);
+  margin: 0 auto fluid(72px, 94px);
+  max-width: rem(400px);
   * {
-    height: rem(40px);
+    height: fluid(40px, 56px);
     border-radius: rem(28px);
+    @media (min-width: $bp1) {
+    }
+  }
+  @media (min-width: $bp1) {
+    padding: 0;
+    flex-direction: row;
+    gap: rem(16px);
+    max-width: none;
   }
 }
 
 .input {
   border: 1px solid var(--clr-input-border);
-  font-size: rem(12px);
+  font-size: fluid(12px, 16px);
   font-weight: 300;
-  padding: rem(10px) rem(32px);
+  padding: fluid(10px, 18px) fluid(32px, 30px);
   &::placeholder {
     color: var(--clr-input-placeholder);
   }
@@ -25,20 +38,26 @@
   &:active {
     outline: 0;
   }
+  @media (min-width: $bp1) {
+    width: 100%;
+  }
 }
 
 .button {
   background-color: var(--clr-button-bg);
   color: var(--clr-button-text);
   font-weight: 600;
-  font-size: rem(12px);
-  line-height: 1.33333;
+  font-size: fluid(12px, 16px);
   border: 0;
   cursor: pointer;
   box-shadow: 0px 5px 10px 2px color.change($blueberry, $alpha: 0.231);
   transition: background-color 0.2s ease;
   &:hover,
-  &:focus {
+  &:focus,
+  &:active {
     background-color: color.change($blueberry, $alpha: 0.796);
+  }
+  @media (min-width: $bp1) {
+    width: rem(200px);
   }
 }
