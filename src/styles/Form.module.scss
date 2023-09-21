@@ -88,5 +88,6 @@
   }
   @media (min-width: $bp1) {
     width: rem(200px);
+    flex-shrink: 0;
   }
 }
