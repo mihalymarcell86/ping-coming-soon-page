@@ -47,7 +47,7 @@
   border-color: var(--clr-error);
   margin-bottom: rem(2px);
   @media (min-width: $bp1) {
-    margin-bottom: rem(6px);
+    margin-bottom: 0;
   }
 }
 
@@ -61,7 +61,7 @@
   margin-bottom: rem(20px);
   @media (min-width: $bp1) {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 6px);
     left: fluid(32px, 30px);
     font-size: rem(12px);
     line-height: 1.66667;
