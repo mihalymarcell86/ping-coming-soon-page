@@ -9,16 +9,13 @@
   padding-inline: rem(20px);
   display: flex;
   flex-direction: column;
-  gap: rem(10px);
   margin: 0 auto fluid(72px, 94px);
   max-width: rem(400px);
   * {
-    height: fluid(40px, 56px);
     border-radius: rem(28px);
-    @media (min-width: $bp1) {
-    }
   }
   @media (min-width: $bp1) {
+    position: relative;
     padding: 0;
     flex-direction: row;
     gap: rem(16px);
@@ -28,9 +25,11 @@
 
 .input {
   border: 1px solid var(--clr-input-border);
+  height: fluid(40px, 56px);
   font-size: fluid(12px, 16px);
   font-weight: 300;
   padding: fluid(10px, 18px) fluid(32px, 30px);
+  margin-bottom: rem(10px);
   &::placeholder {
     color: var(--clr-input-placeholder);
   }
@@ -40,12 +39,41 @@
   }
   @media (min-width: $bp1) {
     width: 100%;
+    margin-bottom: 0;
+  }
+}
+
+.error {
+  border-color: var(--clr-error);
+  margin-bottom: rem(2px);
+  @media (min-width: $bp1) {
+    margin-bottom: rem(6px);
+  }
+}
+
+.error_message {
+  font-size: rem(10px);
+  font-style: italic;
+  line-height: 2;
+  letter-spacing: 0.125px;
+  color: var(--clr-error);
+  text-align: center;
+  margin-bottom: rem(20px);
+  @media (min-width: $bp1) {
+    position: absolute;
+    top: 100%;
+    left: fluid(32px, 30px);
+    font-size: rem(12px);
+    line-height: 1.66667;
+    letter-spacing: 0.15px;
+    margin-bottom: 0;
   }
 }
 
 .button {
   background-color: var(--clr-button-bg);
   color: var(--clr-button-text);
+  height: fluid(40px, 56px);
   font-weight: 600;
   font-size: fluid(12px, 16px);
   border: 0;
@@ -56,6 +84,7 @@
   &:focus,
   &:active {
     background-color: color.change($blueberry, $alpha: 0.796);
+    outline: 0;
   }
   @media (min-width: $bp1) {
     width: rem(200px);
