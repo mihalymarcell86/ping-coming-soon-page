@@ -1,0 +1,67 @@
+@use "util/global" as *;
+@use "sass:color" as color;
+
+.logo {
+  display: block;
+  height: rem(20px);
+  margin: 0 auto rem(34px);
+}
+
+.main {
+  margin-bottom: rem(120px);
+}
+
+.heading {
+  font-size: rem(22px);
+  line-height: 1.45455;
+  font-weight: 300;
+  text-align: center;
+  color: var(--clr-heading);
+  margin-bottom: rem(15px);
+  strong {
+    font-weight: 700;
+    color: var(--clr-heading-strong);
+  }
+}
+
+.paragraph {
+  font-size: rem(12px);
+  font-weight: 300;
+  text-align: center;
+  color: var(--clr-paragraph);
+  margin-bottom: rem(32px);
+}
+
+.footer {
+  font-size: rem(10px);
+  font-weight: 300;
+  color: var(--clr-copyright);
+  text-align: center;
+}
+
+.social_media {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto rem(27px);
+  max-width: rem(120px);
+  a {
+    display: block;
+    width: rem(31px);
+    height: rem(31px);
+    border: 1px solid color.change($blueberry, $alpha: 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    &,
+    &:visited {
+      color: var(--clr-link);
+    }
+    &:hover,
+    &:focus {
+      color: var(--clr-link-hover);
+      background-color: var(--clr-link);
+    }
+  }
+}

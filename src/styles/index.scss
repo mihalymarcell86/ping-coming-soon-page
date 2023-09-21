@@ -1,0 +1,22 @@
+@use "util/global" as *;
+
+@include setup;
+
+:root {
+  --clr-heading: #{$spanish-gray};
+  --clr-heading-strong: #{$dark-jungle-green};
+  --clr-paragraph: #{$dark-jungle-green};
+  --clr-input-border: #{$lavender-blue};
+  --clr-input-placeholder: #{$vodka};
+  --clr-input-text: #{$dark-jungle-green};
+  --clr-button-bg: #{$blueberry};
+  --clr-button-text: #{$white};
+  --clr-copyright: #{$spanish-gray};
+  --clr-link: #{$blueberry};
+  --clr-link-hover: #{$white};
+}
+
+body {
+  font-family: "Libre Franklin", sans-serif;
+  padding: rem(83px) rem(37px) rem(37px);
+}

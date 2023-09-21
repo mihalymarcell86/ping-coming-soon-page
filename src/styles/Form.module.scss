@@ -1,0 +1,44 @@
+@use "util/global" as *;
+@use "sass:color" as color;
+
+.form {
+  padding-inline: rem(10px);
+  display: flex;
+  flex-direction: column;
+  gap: rem(10px);
+  margin-bottom: rem(72px);
+  * {
+    height: rem(40px);
+    border-radius: rem(28px);
+  }
+}
+
+.input {
+  border: 1px solid var(--clr-input-border);
+  font-size: rem(12px);
+  font-weight: 300;
+  padding: rem(10px) rem(32px);
+  &::placeholder {
+    color: var(--clr-input-placeholder);
+  }
+  &:focus,
+  &:active {
+    outline: 0;
+  }
+}
+
+.button {
+  background-color: var(--clr-button-bg);
+  color: var(--clr-button-text);
+  font-weight: 600;
+  font-size: rem(12px);
+  line-height: 1.33333;
+  border: 0;
+  cursor: pointer;
+  box-shadow: 0px 5px 10px 2px color.change($blueberry, $alpha: 0.231);
+  transition: background-color 0.2s ease;
+  &:hover,
+  &:focus {
+    background-color: color.change($blueberry, $alpha: 0.796);
+  }
+}
