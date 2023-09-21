@@ -22,6 +22,7 @@ body {
   padding: rem(83px) rem(28px) rem(37px);
   max-width: rem(640px);
   margin-inline: auto;
+  position: relative;
   @media (min-width: $bp1) {
     padding: rem(80px) rem(37px) rem(49px);
   }
